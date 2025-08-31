@@ -66,8 +66,6 @@ Mapped MITRE ATT&CK:
 
 👨‍💻 Contributors
 
-Kumar 🟣
-
 Sriram R 🔵
 
 Leela Pavan 🟢
