@@ -1,123 +1,85 @@
-# Apex-Financials-Incident-Response
-Part 1: Spear-phishing &amp; ransomware attack report (INC250306)  Part 2: Web server compromise with c99shell backdoor (INC250422)
+🛡️ Apex Financials – Cybersecurity Incident Response
+<p align="center"> <img src="assets/banner.png" alt="Incident Response Banner" width="80%"> </p> <p align="center"> <img src="https://img.shields.io/badge/University-SUNY%20Albany-purple?style=for-the-badge&logo=grad" /> <img src="https://img.shields.io/badge/Spring-2025-blue?style=for-the-badge&logo=calendar" /> <img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green?style=for-the-badge&logo=open-source-initiative" /> </p>
+📂 Repository Overview
+Thumbnail	File	Description
 
-# 🛡️ Apex Financials – Incident Response Report (Part 1 & Part 2)
+	INC250306_Report_Part1.pdf	Spear-phishing → ShadowCrypt ransomware analysis
 
-This repository documents two separate but high-impact cybersecurity incidents that occurred at Apex Financials. These incidents were investigated using industry-standard tools (Splunk, Wireshark, IDS, firewall analysis) and mapped to MITRE ATT&CK tactics.
+	Part1_Assignment_Guidelines.pdf	Task description, scope & objectives
 
----
+	INC250422_Report_Part2.pdf	Web server compromise & data exfiltration
 
-📂 Repository Contents
-File	Description
-INC250306_Report_Part1.pdf	Technical report – Spear-phishing → ShadowCrypt ransomware incident
-Part1_Assignment_Guidelines.pdf	Faculty-provided task description & scope
-INC250422_Report_Part2.pdf	Technical report – Web server compromise & web shell backdoor
-Part2_Assignment_Guidelines.pdf	Project resources: network diagram, asset roles, and scope
-Part2_SourceLogs.pptx	Provided logs and attack hints
-Part2_Readme_Clue.txt	Decoding clue / assignment identifier
-Part2_Presentation.pdf	Final presentation with summary and takeaways
+	Part2_SourceLogs.pptx	Source logs & attack hints
+
+	Part2_Readme_Clue.txt	XOR decoding clue / assignment ID
+
+	Part2_Presentation.pdf	Final presentation (visual summary & takeaways)
 🔍 Incident 1 – ShadowCrypt Ransomware (INC250306)
+<p align="center"> <img src="assets/ransomware.png" alt="Ransomware Attack Flow" width="65%"> </p>
 
-Attack Vector: Spear-phishing email with malicious PDF
+🎯 Attack Vector: Spear-phishing email with malicious PDF
 
-Initial Compromise: WORKSTATION-01 (user: apexfinancial\analyst1)
+💻 Initial Target: WORKSTATION-01 (apexfinancial\analyst1)
 
-Execution: Malicious macro in PDF (T1204.002)
+⚡ Execution: Malicious macro → (T1204.002)
 
-Credential Access: Brute-force + Pass-the-Hash (T1110, T1550.002)
+🔑 Credential Access: Brute-force + Pass-the-Hash (T1110, T1550.002)
 
-Lateral Movement: WMI & PsExec
+🔄 Lateral Movement: WMI + PsExec
 
-Impact: Deployment of ShadowCrypt ransomware on server 192.168.1.200
+💣 Final Payload: ShadowCrypt ransomware on server 192.168.1.200
 
-Persistence: Scheduled tasks created (T1053.005)
+⏳ Persistence: Scheduled tasks (T1053.005)
 
 IOCs:
-
-Malicious attachment: Q1 Performance Review.pdf
-
-C2 Server: 185.143.223.47
-
-Registry edits & scheduled task artifacts
-
-Business Impact:
-Operational downtime, risk of intellectual property theft, and financial record loss.
+📎 Q1 Performance Review.pdf
+🌐 C2: 185.143.223.47
+🛠️ Registry & scheduled task artifacts
 
 🔎 Incident 2 – Web Server Compromise (INC250422)
+<p align="center"> <img src="assets/webshell.png" alt="Web Server Attack" width="65%"> </p>
 
-Initial Access: Brute-force login to /login.php
+🚪 Initial Entry: Brute-force /login.php
 
-Exploitation:
+🐚 Exploitation: SQLi + Web shell upload (c99shell.php, eval-stdin.php)
 
-SQL Injection
+🖥️ Commands: cmd=ls, cmd=whoami via PHP shell
 
-Web shell upload (c99shell.php, eval-stdin.php)
+📤 Exfiltration: >50GB data → 167.172.3.114
 
-Command execution via PHP (cmd=ls, cmd=whoami)
+db_config.php, backup.tar.gz, .csv/.xls
 
-Exfiltration: 50GB+ of sensitive data → 167.172.3.114
+Mapped MITRE ATT&CK:
+🔑 T1110 – Brute Force
+🐚 T1505.003 – Web Shell
+⚙️ T1059.003 – PHP Execution
+📡 T1041 – HTTP Data Exfiltration
 
-Stolen files: db_config.php, backup.tar.gz, multiple .csv/.xls datasets
+🛠️ Tools & Frameworks
+<p align="center"> <img src="https://img.shields.io/badge/Splunk-Log%20Correlation-orange?style=for-the-badge&logo=splunk" /> <img src="https://img.shields.io/badge/Wireshark-Packet%20Analysis-blue?style=for-the-badge&logo=wireshark" /> <img src="https://img.shields.io/badge/Security%20Onion-IDS/NSM-teal?style=for-the-badge&logo=security" /> <img src="https://img.shields.io/badge/PowerShell-Forensics-blue?style=for-the-badge&logo=powershell" /> <img src="https://img.shields.io/badge/Linux-CLI%20Analysis-black?style=for-the-badge&logo=linux" /> </p>
+📑 Key Lessons
 
-Analyzed Logs:
-
-Web access logs
-
-IDS alerts
-
-Firewall logs
-
-Mapped MITRE Techniques:
-
-T1110 – Brute Force
-
-T1505.003 – Web Shell
-
-T1059.003 – PHP Command Execution
-
-T1041 – Data Exfiltration over HTTP
-
-🛠️ Tools & Methods
-
-Splunk – Timeline reconstruction, log correlation
-
-Security Onion (IDS/NSM) – Perimeter telemetry
-
-Wireshark & Firewall logs – Network-level validation
-
-ClamAV / YARA / Sysmon / Wazuh – Threat detection (simulated)
-
-PowerShell / Linux CLI – Forensics & hardening
-
-📑 Lessons Learned
-
-Strengthen email filtering + phishing awareness training
-
-Enforce MFA + strong credential policies for privileged access
-
-Deploy WAF + input validation to protect web applications
-
-Ensure forensic readiness (disk images, log hashing, evidence chain)
+✔️ Email filtering & phishing awareness training
+✔️ MFA & strong credential policies
+✔️ WAF + input validation for web apps
+✔️ Forensic readiness (log hashing, disk imaging)
 
 👨‍💻 Contributors
 
-Sriram R
+Kumar 🟣
 
-Leela Pavan (me)
+Sriram R 🔵
 
-Shalem Raju
+Leela Pavan 🟢
 
-SriVarsha A
+Shalem Raju 🟠
 
-Junaid M
+SriVarsha A 🟡
 
-Phanindhar Reddy K
+Junaid M 🔴
 
-Master’s in Cybersecurity & Digital Forensics – University at Albany (Spring 2025)
+Phanindhar Reddy K 🟤
 
 📄 License
 
-Licensed under CC BY-NC-ND 4.0.
-You may share this project with attribution, but commercial use or modifications are not permitted.
-
-👉 This way, it looks like your own repo, while giving full credit to your team.
+📝 Licensed under CC BY-NC-ND 4.0
