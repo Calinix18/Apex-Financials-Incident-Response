@@ -1,19 +1,14 @@
 🛡️ Apex Financials – Cybersecurity Incident Response
 <p align="center"> <img src="https://img.shields.io/badge/University-SUNY%20Albany-purple?style=for-the-badge&logo=grad" /> <img src="https://img.shields.io/badge/Spring-2025-blue?style=for-the-badge&logo=calendar" /> <img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green?style=for-the-badge&logo=open-source-initiative" /> </p>
-📂 Repository Overview
-Thumbnail	File	Description
-
-	INC250306_Report_Part1.pdf	Spear-phishing → ShadowCrypt ransomware analysis
-
-	Part1_Assignment_Guidelines.pdf	Task description, scope & objectives
-
-	INC250422_Report_Part2.pdf	Web server compromise & data exfiltration
-
-	Part2_SourceLogs.pptx	Source logs & attack hints
-
-	Part2_Readme_Clue.txt	XOR decoding clue / assignment ID
-
-	Part2_Presentation.pdf	Final presentation (visual summary & takeaways)
+📂 Repository Contents
+File	Description
+INC250306_Report_Part1.pdf	Technical report – Spear-phishing → ShadowCrypt ransomware incident
+Part1_Assignment_Guidelines.pdf	Faculty-provided task description & scope
+INC250422_Report_Part2.pdf	Technical report – Web server compromise & web shell backdoor
+Part2_Assignment_Guidelines.pdf	Project resources: network diagram, asset roles, and scope
+Part2_SourceLogs.pptx	Provided logs and attack hints
+Part2_Readme_Clue.txt	Decoding clue / assignment identifier
+Part2_Presentation.pdf	Final presentation with summary and takeaways
 🔍 Incident 1 – ShadowCrypt Ransomware (INC250306)
 
 🎯 Attack Vector: Spear-phishing email with malicious PDF
@@ -63,8 +58,6 @@ Mapped MITRE ATT&CK:
 ✔️ Forensic readiness (log hashing, disk imaging)
 
 👨‍💻 Contributors
-
-Kumar 🟣
 
 Sriram R 🔵
 
