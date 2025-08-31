@@ -1,5 +1,5 @@
 🛡️ Apex Financials – Cybersecurity Incident Response
-<p align="center"> <img src="assets/banner.png" alt="Incident Response Banner" width="80%"> </p> <p align="center"> <img src="https://img.shields.io/badge/University-SUNY%20Albany-purple?style=for-the-badge&logo=grad" /> <img src="https://img.shields.io/badge/Spring-2025-blue?style=for-the-badge&logo=calendar" /> <img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green?style=for-the-badge&logo=open-source-initiative" /> </p>
+<p align="center"> <img src="https://img.shields.io/badge/University-SUNY%20Albany-purple?style=for-the-badge&logo=grad" /> <img src="https://img.shields.io/badge/Spring-2025-blue?style=for-the-badge&logo=calendar" /> <img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green?style=for-the-badge&logo=open-source-initiative" /> </p>
 📂 Repository Overview
 Thumbnail	File	Description
 
@@ -15,7 +15,6 @@ Thumbnail	File	Description
 
 	Part2_Presentation.pdf	Final presentation (visual summary & takeaways)
 🔍 Incident 1 – ShadowCrypt Ransomware (INC250306)
-<p align="center"> <img src="assets/ransomware.png" alt="Ransomware Attack Flow" width="65%"> </p>
 
 🎯 Attack Vector: Spear-phishing email with malicious PDF
 
@@ -37,7 +36,6 @@ IOCs:
 🛠️ Registry & scheduled task artifacts
 
 🔎 Incident 2 – Web Server Compromise (INC250422)
-<p align="center"> <img src="assets/webshell.png" alt="Web Server Attack" width="65%"> </p>
 
 🚪 Initial Entry: Brute-force /login.php
 
@@ -65,6 +63,8 @@ Mapped MITRE ATT&CK:
 ✔️ Forensic readiness (log hashing, disk imaging)
 
 👨‍💻 Contributors
+
+Kumar 🟣
 
 Sriram R 🔵
 
